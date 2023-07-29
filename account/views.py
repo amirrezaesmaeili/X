@@ -12,7 +12,7 @@ class RegisterView(View):
        
     def post(self,request):
         form = UserRegistrationForm(request.POST)
-        if form.is_valid:
+        if form.is_valid():
             cd = form.cleaned_data
             User.objects.create_user(cd['username'],cd['email'],cd['password'])
             messages.success(request,'you registered successfuly','success')
