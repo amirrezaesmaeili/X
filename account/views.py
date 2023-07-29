@@ -14,5 +14,6 @@ class RegisterView(View):
         form = UserRegistrationForm(request.POST)
         if form.is_valid:
             cd = form.cleaned_data
+            User.objects.create_user(cd['username'],cd['email'],cd['password'])
             _
 
