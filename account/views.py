@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from .forms import UserRegistrationForm
 from django.contrib.auth.models import User
@@ -16,5 +16,5 @@ class RegisterView(View):
             cd = form.cleaned_data
             User.objects.create_user(cd['username'],cd['email'],cd['password'])
             messages.success(request,'you registered successfuly','success')
-            _
+            return redirect('home:home')
 
