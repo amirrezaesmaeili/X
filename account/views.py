@@ -11,4 +11,8 @@ class RegisterView(View):
         return render(request,'account/register.html',{'form':form})
        
     def post(self,request):
-        pass
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid:
+            cd = form.cleaned_data
+            _
+
