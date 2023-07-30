@@ -22,3 +22,12 @@ class UserRegisterView(View):
             return redirect('home:home')
         return render(request,self.template_name,{'form':form})
 
+class UserLoginView(View):
+    def get(self,requset):
+        pass
+
+
+    def post(self,request):
+        pass
+    
+
