@@ -27,7 +27,7 @@ class UserLoginView(View):
     form_class = UserLoginForm
     template_name = 'account/login.html'
 
-    def get(self,requset):
+    def get(self,request):
         form = self.form_class
         return render(request,self.template_name,{'form':form})
 
@@ -39,7 +39,7 @@ class UserLoginView(View):
             user = authenticate(request,username=cd['username'],password=cd['password'])
             if user is not None:
                 login(request,user)
-                messages.success(request,'you logged in successfuly','suceessfuly')
+                messages.success(request,'you logged in successfuly','success')
                 return redirect('home:home')
             messages.error(request,'username or password is wrong', 'warning')
         return render(request,self.template_name,{'form':form})
