@@ -8,3 +8,9 @@ class UserRegistrationForm(forms.Form):
     (attrs={'class':'form-control','placeholder':' please Enter strong password'}))
 
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        user = User.objects.filter(email=email).exists()
+        if user:
+            raise ValidationError('this email already exists')
+        return email
