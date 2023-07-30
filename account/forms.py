@@ -1,3 +1,4 @@
+from typing import Any, Dict
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -21,3 +22,12 @@ class UserRegistrationForm(forms.Form):
         if user:
             raise ValidationError('this username already exists')
         return username
+    
+    def clean(self):
+        cd = super().clean()
+        p1 = cd.get('password1')
+        p2 = cd.get('password2')
+
+        if p1 and p2 and p1 != p2 :
+            raise ValidationError('password must match')
+
