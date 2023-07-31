@@ -45,5 +45,7 @@ class UserLoginView(View):
         return render(request,self.template_name,{'form':form})
             
 
-    
-
+class UserLogoutView(View):
+    def get(self,request):
+        logout(request)
+        messages.success(request,'you logged out successfuly', 'success')
