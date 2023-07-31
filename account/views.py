@@ -49,3 +49,4 @@ class UserLogoutView(View):
     def get(self,request):
         logout(request)
         messages.success(request,'you logged out successfuly', 'success')
+        return redirect('home:home')
