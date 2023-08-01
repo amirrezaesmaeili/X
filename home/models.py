@@ -7,3 +7,6 @@ class Post(models.Model):
     slug = models.SlugField()
     created = models.DateTimeField()
     updated = models.DateTimeField()
+
+    def __str__(self):
+        return f'{self.slug} - {self.updated}'
