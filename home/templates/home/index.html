@@ -2,4 +2,11 @@
 
 {% block content %}
   index page
+
+  <div class="card">
+    {% for post in posts %}
+      <a href="" class="card-body">{{post.body|truncatewords:8}}</a>
+    { % endfor %}
+  </div>
+
 {% endblock%}
