@@ -7,5 +7,6 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('slug','body')
     list_filter = ('updated',)
     prepopulated_fields = {'slug':('body',)}
-    
+    raw_id_fields = ('user',)
+
     
