@@ -5,4 +5,5 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     list_display = ('user','slug','updated')
     search_fields = ('slug','body')
+    list_filter = ('updated',)
     
