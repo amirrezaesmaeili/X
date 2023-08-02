@@ -11,3 +11,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.slug} - {self.updated}'
+    
+    def get_absolute_url(self):
+        return reverse('home:post_detatil', args=(self.id , self.slug))
+    
